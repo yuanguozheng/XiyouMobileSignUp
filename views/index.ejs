@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>西邮移动应用开发俱乐部纳新报名</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.js"></script>
+    <script type="text/javascript" src="js/join.js"></script>
+    <link href="css/redmond/jquery.ui.css" rel="stylesheet" type="text/css" />
+    <link href="css/join.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- header -->
+<header>
+    <a href="http://www.xiyoumobile.com/" target="_blank"><img src="img/topbar.png" alt="" /></a>
+</header>
+<!-- /header -->
+<div id="wrapper">
+    <div id="seek">
+        <input id="seek_results" type="button" value="报名查询"/>
+    </div>
+    <!-- content -->
+    <article>
+        <section>
+            <h1>亲，报名请填信息！</h1>
+
+            <p>
+                <span>亲的学号：</span>
+                <input type="text" id="id" name="id" onblur="autoComplete()" title="如：04111176" />
+                <span class="star">*</span>
+            </p>
+            <p>
+                <span>亲的大名：</span>
+                <input type="text" id="name" name="name"  title="如：张三" />
+                <span class="star">*</span>
+            </p>
+            <p>
+                <span>亲的班级：</span>
+                <input type="text" id="class" name="class" title="如：计科1106" />
+                <span class="star">*</span>
+            </p>
+            <p>
+                <span>亲的性别：</span>
+                <input type="radio" name="sex" value="male" id="male" checked="checked"><label for="male">汉子</label>
+                </input>
+                <input type="radio" name="sex" value="female" id="female"><label for="female">妹子</label></input>
+                <span class="star">*</span>
+            </p>
+            <p>
+                <span>亲的电话：</span>
+                <input type="text" name="phone" id="phone" title="如：13800138000" />
+                <span class="star">*</span>
+            </p>
+            <p>
+                <span>亲的方向：</span>
+                <!--<input id="subType" type="text" title="双击进行选择" list="subTypes" />-->
+                <input type="radio" name="team" value="ios" id="ios" checked="checked"><label for="ios">iOS</label></input>
+                <input type="radio" name="team" value="android" id="android"><label for="android">Android</label></input>
+
+            </p>
+            <p>
+                <span style="margin-left: 85px"></span>
+                <input type="radio" name="team" value="wp" id="wp" style="text-align: right"><label for="wp">Windows Phone</label></input>
+
+                    <span class="star">*</span></p>
+            <p>
+                <span>个人说明：</span>
+                <textarea  cols="30" rows="5" title="150字之内" id="summary" name="summary"></textarea>
+            </p>
+            <p class="becenter" style="margin:20px 0">
+                <input onclick="return doConfirm()" id="submit_button" type="submit" value="确认报名" />
+                <input id="reset_button" type="button" value="重新填写" onclick="doReset()"/>
+
+            </p>
+
+        </section>
+    </article>
+    <!-- /content -->
+</div>
+<!-- Begin Footer One  -->
+<div id="footer">
+    <div id="bottomcontent">
+        <div id="b1">
+            <h3>
+                纳新说明
+            </h3>
+            请认真填写报名信息，如查询报名结果出现问题，请及时与我们联系！
+        </div>
+
+        <div id="b3">
+            <h3>
+                <a href="http://www.xiyoumobile.com/contact.aspx">联系我们</a>
+            </h3>
+            <span class="lightbluetext">实验室具体位置</span><br />
+            西安邮电大学长安校区<br />
+            东区教学楼FZ155教室
+            <br />
+            <span class="lightbluetext">QQ群:</span> 315602317<br />
+            <span class="lightbluetext">Email</span>
+            <br />
+            <a href="mailto:contact@xiyoumobile.com">contact@xiyoumobile.com</a>
+        </div>
+
+        <div id="b2">
+            <h3><a href="http://www.xiyoumobile.com/questionlist.aspx">在此提问</a></h3>
+            可以提出想要说的，有学长学姐会为你解答！
+        </div>
+    </div>
+</div>
+<!-- End Footer One  -->
+<!-- footer -->
+<footer>
+    <div id="foot-content">
+        <div id="foot-content-left">Copyright &copy; 2011-2014 西安邮电大学移动开发应用俱乐部 All rights reserved.</div>
+
+        <div class="sitelink">
+            <img src="img/weibo.png" alt="" align="middle" />
+            <a href="http://weibo.com/u/2794801680" target="_blank">新浪微博</a>
+        </div>
+
+        <div class="sitelink">
+            <img src="img/renren.png" alt="" align="middle" />
+            <a href="http://page.renren.com/601470193" target="_blank">人人主页</a>
+        </div>
+    </div>
+</footer>
+<!-- /footer -->
+<div id="succeed" title="提示">
+    恭喜亲，报名成功喽！^_^
+    <br/><br/>
+    <span id="callback_info"></span>
+</div>
+<div id="fail" title="提示">
+    抱歉亲，报名失败了！~_~
+    <br/><br/>
+    <span id="exception_info"></span>
+</div>
+<div id="d_seek_results" title="报名查询">
+    <p>
+        <label for="d_id">学号：</label>
+        <input id="d_id" type="text" name="d_id"  title="如：04111176" />
+        <span class="star">*</span>
+    </p>
+    <p>
+        <label for="d_name">姓名：</label>
+        <input id="d_name" type="text" name="d_name" title="一定要写哦！"/>
+        <span class="star">*</span>
+    </p>
+</div>
+</body>
+</html>
